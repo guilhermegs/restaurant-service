@@ -44,3 +44,20 @@ General: At least one of the following parameters is required.
 - distance: If entered, should be numeric from 1 to 10;
 - price: If entered, should be numeric from 10 to 50;
 - cuisine: If entered, should contain the name of the cuisine, no matter if it's in lower or upper case.
+
+## Project structure
+
+The api was developed using concepts like Clean Architecture and Domain Driven Design.
+
+Below we see the design of the application structure. We have a core with domain and usecase, where we have all the application's business logic concentrated.
+We also have, in the infrastructure layer, a data provider layer and an entrypoint layer. In addition to a configuration layer that permeates the rest of the application and is responsible for SpringBoot Beans creation and dependency injection.
+
+![image](https://github.com/guilhermegs/restaurant-service/assets/27780764/a46cd26f-a231-4692-9aa6-f264a4593384)
+
+
+For the development of the domain layer, the concept of domain driven design was used, with rich entities, whose behavior is under their responsibility and not that of external services.
+
+To do this, we have a restaurant aggregate, which contains the restaurant entity and its value objects, as well as a repository and a factory.
+
+![image](https://github.com/guilhermegs/restaurant-service/assets/27780764/00d0b082-a936-43b8-847a-2fb049be266c)
+
