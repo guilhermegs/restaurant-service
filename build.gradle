@@ -8,7 +8,7 @@ plugins {
 }
 
 group = 'br.com.guilhermegarciadev'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 
 java {
 	sourceCompatibility = '17'
@@ -34,4 +34,14 @@ tasks.withType(KotlinCompile) {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.named("bootBuildImage") {
+	docker {
+		host = "unix:///Users/guigarcia/.colima/docker.sock"
+	}
+}
+
+jar {
+	enabled = false
 }
